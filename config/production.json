@@ -1,0 +1,4 @@
+{
+  "host": "socketio-srv-app.feathersjs.com",
+  "port": "PORT"
+}

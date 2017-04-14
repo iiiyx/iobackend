@@ -1,0 +1,10 @@
+{
+  "host": "localhost",
+  "port": 3031,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mysql": "mysql://root:gfhjkmjn,l25@31.25.240.148:3306/smotri"
+}
