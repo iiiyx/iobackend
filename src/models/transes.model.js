@@ -6,8 +6,8 @@ const Sequelize = require('sequelize');
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const moonall = sequelizeClient.define('moonall', {
-    text: {
+  let transes = sequelizeClient.define('moon_trans', {
+    name: {
       type: Sequelize.STRING,
       allowNull: false
     }
@@ -16,9 +16,9 @@ module.exports = function (app) {
       associate (models) { // eslint-disable-line no-unused-vars
         // Define associations here
         // See http://docs.sequelizejs.com/en/latest/docs/associations/
+        // transes.has(models.transes, {foreignKey: 'trid'})
       }
     }
   });
-
-  return moonall;
-};
+  return transes
+}

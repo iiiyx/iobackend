@@ -1,10 +1,10 @@
 'use strict';
 
-// Initializes the `moonall` service on path `/moonall`
+// Initializes the `series` service on path `/series`
 const createService = require('feathers-sequelize');
-const createModel = require('../../models/moonall.model');
-const hooks = require('./moonall.hooks');
-const filters = require('./moonall.filters');
+const createModel = require('../../models/series.model');
+const hooks = require('./series.hooks');
+const filters = require('./series.filters');
 
 module.exports = function () {
   const app = this;
@@ -12,16 +12,16 @@ module.exports = function () {
   const paginate = app.get('paginate');
 
   const options = {
-    name: 'moonall',
+    name: 'series',
     Model,
     paginate
   };
 
   // Initialize our service with any options it requires
-  app.use('/moonall', createService(options));
+  app.use('/series', createService(options));
 
   // Get our initialized service so that we can register hooks and filters
-  const service = app.service('moonall');
+  const service = app.service('series');
 
   service.hooks(hooks);
 

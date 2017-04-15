@@ -23,7 +23,15 @@ module.exports = function () {
   // Get our initialized service so that we can register hooks and filters
   const service = app.service('movies');
 
-  service.hooks(hooks);
+  service.hooks({
+    before: {
+      find(hook) {
+        hook.params.sequelize = {
+          include: [ require('../../models/transes.model')(app) ]
+        }
+      }
+    }
+  });
 
   if (service.filter) {
     service.filter(filters);

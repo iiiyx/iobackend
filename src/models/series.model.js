@@ -6,51 +6,40 @@ const Sequelize = require('sequelize');
 
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
-  const transes = require('./transes.model.js')(app)
-  let movies = sequelizeClient.define('moonall', {
+  const series = sequelizeClient.define('moonall_sers', {
     sid: {
       type: Sequelize.STRING(32),
-      primaryKey: true
+      allowNull: false
     },
-    type: {
+    s: {
       type: Sequelize.INTEGER(3).UNSIGNED,
       allowNull: false
     },
-    ru: {
-      type: Sequelize.STRING(300),
-      allowNull: true
-    },
-    en: {
-      type: Sequelize.STRING(150),
-      allowNull: true
-    },
-    time: {
-      type: Sequelize.DATE(6),
+    e: {
+      type: Sequelize.INTEGER(5).UNSIGNED,
       allowNull: false
     },
-    kpid: {
-      type: Sequelize.INTEGER(10).UNSIGNED,
-      allowNull: true
-    },
-    trid: {
-      type: Sequelize.INTEGER(5).UNSIGNED,
-      allowNull: true
-    },
-    camrip: {
-      type: Sequelize.BOOLEAN,
+    eid: {
+      type: Sequelize.STRING(32),
       allowNull: false,
-      defaultValue: false
+      primaryKey: true
+    },
+    date: {
+      type: Sequelize.DATE(6),
+      allowNull: true
+    },
+    cc: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   }, {
     classMethods: {
       associate (models) { // eslint-disable-line no-unused-vars
         // Define associations here
         // See http://docs.sequelizejs.com/en/latest/docs/associations/
-        movies.belongsTo(models.moon_trans, {foreignKey: 'trid'})
-        // console.log(models)
       }
     }
   });
-  
-  return movies;
+
+  return series;
 };
