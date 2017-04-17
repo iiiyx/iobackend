@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
 const hooks = require('feathers-hooks');
-const rest = require('feathers-rest');
+// const rest = require('feathers-rest');
 const socketio = require('feathers-socketio');
 
 const middleware = require('./middleware');
@@ -29,14 +29,14 @@ app.use(helmet());
 app.use(compress());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
+// app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Host the public folder
-app.use('/', feathers.static(app.get('public')));
+// app.use('/api/', feathers.static(app.get('public')));
 
 // Set up Plugins and providers
 app.configure(hooks());
 app.configure(mysql);
-app.configure(rest());
+// app.configure(rest());
 app.configure(socketio());
 
 // Set up our services (see `services/index.js`)
