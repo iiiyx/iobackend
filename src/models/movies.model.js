@@ -7,6 +7,7 @@ const Sequelize = require('sequelize');
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const transes = require('./transes.model.js')(app)
+  const series = require('./series.model.js')(app)
   let movies = sequelizeClient.define('moonall', {
     sid: {
       type: Sequelize.STRING(32),
@@ -47,7 +48,7 @@ module.exports = function (app) {
         // Define associations here
         // See http://docs.sequelizejs.com/en/latest/docs/associations/
         movies.belongsTo(models.moon_trans, {foreignKey: 'trid'})
-        // console.log(models)
+        movies.hasMany(models.moonall_sers, {foreignKey: 'sid'})
       }
     }
   });

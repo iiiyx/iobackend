@@ -27,7 +27,10 @@ module.exports = function () {
     before: {
       find(hook) {
         hook.params.sequelize = {
-          include: [ require('../../models/transes.model')(app) ]
+          include: [ 
+            require('../../models/transes.model')(app),
+            require('../../models/series.model')(app)
+          ]
         }
       }
     }
