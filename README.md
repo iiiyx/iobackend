@@ -1,6 +1,6 @@
-# socketio-srv
+# rest-srv
 
-> descr
+> RESTful backend service utilizing sequelize mysql connector which can be replaced with any other DB connector.
 
 ## About
 
