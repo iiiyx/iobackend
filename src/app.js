@@ -10,8 +10,8 @@ const bodyParser = require('body-parser');
 const feathers = require('feathers');
 const configuration = require('feathers-configuration');
 const hooks = require('feathers-hooks');
-// const rest = require('feathers-rest');
-const socketio = require('feathers-socketio');
+const rest = require('feathers-rest');
+// const socketio = require('feathers-socketio');
 
 const middleware = require('./middleware');
 const services = require('./services');
@@ -36,8 +36,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Set up Plugins and providers
 app.configure(hooks());
 app.configure(mysql);
-// app.configure(rest());
-app.configure(socketio());
+app.configure(rest());
+// app.configure(socketio());
 
 // Set up our services (see `services/index.js`)
 app.configure(services);
