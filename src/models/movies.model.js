@@ -41,6 +41,11 @@ module.exports = function (app) {
       type: Sequelize.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+    material_data: {
+      type: Sequelize.TEXT,
+      allowNull: true,
+      defaultValue: null
     }
   }, {
     classMethods: {
